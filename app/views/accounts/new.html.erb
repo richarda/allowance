@@ -1,0 +1,22 @@
+<h1>Create a New Account</h1>
+
+<%= form_with scope: :account, url: accounts_path, local: true do |form| %>
+  <p>
+    <%= form.label :account_holder %><br>
+    <%= form.text_field :account_holder %>
+  </p>
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.label :balance %><br>
+    <%= form.number_field :balance, step: :any %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

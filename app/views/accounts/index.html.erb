@@ -1,0 +1,17 @@
+<h1>All Accounts</h1>
+
+<table>
+    <tr>
+        <th>Account Holder</th>
+        <th>Description</th>
+        <th></th>
+    </tr>
+
+    <% @accounts.each do |account| %>
+      <tr>
+          <td><%= account.account_holder %></td>
+          <td><%= account.description %></td>
+          <td><%= link_to 'Show', account_path(account) %></td>
+      </tr>
+    <% end %>
+</table>
