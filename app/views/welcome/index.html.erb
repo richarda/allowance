@@ -1,3 +1,20 @@
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="UY2XpKwxzwBWalxFVJ8yKsao/33it7If09BnZewpHifVPSpFJd2LrA7xgQn6VQrhZNGjgZoLI3kV+bkQHtr+Rw==">
+
 <h1>Allowance Tracker</h1>
 
-<p>Ballance: $0.00</p>
+<% if @user.nil? %>
+    <%= button_to 'Login', 'auth/auth0', method: :post %>
+<% else %>
+    <p>
+        <%= @user[:info][:name] %>
+    </p>
+
+    <% if @account.nil? %>
+        <p> User has no account </p>
+    <% else %>
+        <%= number_to_currency @account.balance %>
+    <% end %>
+
+    <%= button_to 'Logout', logout_path, method: :get %>
+<% end %>
